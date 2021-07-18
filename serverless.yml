@@ -32,8 +32,13 @@ functions:
           path: /create
           method: POST
           cors: true
-
-
+  listEmployee:
+    handler: src/modules/employees/UseCase/listEmployee/listEmployeeController.handler
+    events:
+      - http:
+          path: /listEmployee
+          method: GET
+          cors:
 resources:
   Resources:
     dbEmployees:
