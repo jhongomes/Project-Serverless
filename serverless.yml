@@ -40,21 +40,21 @@ functions:
           method: GET
           cors:
   updateEmployee:
-    handler: src/modules/employees/useCases/updateEmployee/updateEmployeeController.handle
+    handler: src/modules/employees/UseCase/updateEmployee/updateEmployeeController.handle
     events:
       - http:
           path: /updateEmployee/{id}
           method: PATCH
           cors: true
   deleteEmployee:
-    handler: src/modules/employees/useCases/deleteEmployee/deleteEmployeeController.handle
+    handler: src/modules/employees/UseCase/deleteEmployee/deleteEmployeeController.handle
     events:
       - http:
           path: /deleteEmployee/{id}
           method: DELETE
           cors: true
   viewEmployee:
-    handler: src/modules/employees/useCases/viewEmployee/viewEmployeeController.handle
+    handler: src/modules/employees/UseCase/viewEmployee/viewEmployeeController.handle
     events:
       - http:
           path: /viewEmployee/{id}
@@ -62,7 +62,7 @@ functions:
           cors: true
 resources:
   Resources:
-    dbEmployees:
+    DBProject:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: employees
