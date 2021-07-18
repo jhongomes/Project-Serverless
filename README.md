@@ -10,10 +10,7 @@
 - [AWS-SDK](https://docs.aws.amazon.com/sdk-for-javascript/index.html)
 - [DynamoDB](https://aws.amazon.com/pt/dynamodb/)
 
-
-
-<br />
-
+---
 ### ❗ Como baixar
 
 <br>
@@ -48,6 +45,16 @@ $ yarn dev
 
  Para testar a API desenvolvida você pode usar [Insomnia v7.1](https://insomnia.rest/) ou [Postman](https://www.postman.com/) superior instalado no seu computador,
 
- - 
 
 <br>
+
+
+# Deploy
+### Ao Realizando o deploy na sua maquina o sistema irá disponibilizar uma lista de Endpoint para testar 
+```
+
+
+``` 
+$ yarn
+$ yarn deploy
+```
