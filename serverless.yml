@@ -33,12 +33,26 @@ functions:
           method: POST
           cors: true
   listEmployee:
-    handler: src/modules/employees/UseCase/listEmployee/listEmployeeController.handler
+    handler: src/modules/employees/UseCase/listEmployee/listEmployeeController.handle
     events:
       - http:
           path: /listEmployee
           method: GET
           cors:
+  updateEmployee:
+    handler: src/modules/employees/useCases/updateEmployee/updateEmployeeController.handle
+    events:
+      - http:
+          path: /updateEmployee/{id}
+          method: PATCH
+          cors: true
+  viewEmployee:
+    handler: src/modules/employees/useCases/viewEmployee/viewEmployeeController.handle
+    events:
+      - http:
+          path: /viewEmployee/{id}
+          method: GET
+          cors: true
 resources:
   Resources:
     dbEmployees:
