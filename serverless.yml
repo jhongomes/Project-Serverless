@@ -3,15 +3,25 @@ service: employeesProject
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-dynamodb-local
 
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
-    includesModules: true
+    includeModules: true
+  dynamodb:
+    stages:
+      - dev
+      - local
+    start:
+      port: 8000
+      inMemory: true
+      migrate: true
 
 provider:
   name: aws
   runtime: nodejs14.x
+  region: sa-east-1
     
   
 functions:
@@ -22,3 +32,20 @@ functions:
           path: /hello
           method: GET
           cors: true
+
+
+resources:
+  Resources:
+    dbEmployees:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: employees
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          writeCapacityUnits: 5
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
