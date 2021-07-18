@@ -46,6 +46,13 @@ functions:
           path: /updateEmployee/{id}
           method: PATCH
           cors: true
+  deleteEmployee:
+    handler: src/modules/employees/useCases/deleteEmployee/deleteEmployeeController.handle
+    events:
+      - http:
+          path: /deleteEmployee/{id}
+          method: DELETE
+          cors: true
   viewEmployee:
     handler: src/modules/employees/useCases/viewEmployee/viewEmployeeController.handle
     events:
