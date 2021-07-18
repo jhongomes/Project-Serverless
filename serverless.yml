@@ -1,0 +1,24 @@
+service: employeesProject
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includesModules: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+    
+  
+functions:
+  hello:
+    handler: src/functions/hello.handle
+    events:
+      - http:
+          path: /hello
+          method: GET
+          cors: true
